@@ -14,7 +14,7 @@ import json
 #######################################################################################
 # 2. Assign the Webex access token to the variable ACCESS_TOKEN using environment variables.
 
-ACCESS_TOKEN = os.environ."<!!!REPLACEME with os.environ method and environment variable!!!>"
+ACCESS_TOKEN = os.environ.get('accesstoken')
 
 #######################################################################################
 # 3. Prepare parameters get the latest message for messages API.
