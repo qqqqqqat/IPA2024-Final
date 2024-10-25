@@ -10,6 +10,7 @@ import restconf_final
 import time
 import requests
 import json
+import os
 
 #######################################################################################
 # 2. Assign the Webex access token to the variable ACCESS_TOKEN using environment variables.
