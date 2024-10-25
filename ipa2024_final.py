@@ -22,7 +22,7 @@ ACCESS_TOKEN = os.environ.get('accesstoken')
 
 # Defines a variable that will hold the roomId
 roomIdToGetMessages = (
-    "<!!!REPLACEME with roomID of the IPA2024 Webex Teams room!!!>"
+    "Y2lzY29zcGFyazovL3VzL1JPT00vNTFmNTJiMjAtNWQwYi0xMWVmLWE5YTAtNzlkNTQ0ZjRkNGZi"
 )
 
 while True:
@@ -35,7 +35,7 @@ while True:
     getParameters = {"roomId": roomIdToGetMessages, "max": 1}
 
     # the Webex Teams HTTP header, including the Authoriztion
-    getHTTPHeader = {"Authorization": <!!!REPLACEME!!!>}
+    getHTTPHeader = {"Authorization": "Bearer "+ACCESS_TOKEN}
 
 # 4. Provide the URL to the Webex Teams messages API, and extract location from the received message.
     
@@ -43,9 +43,9 @@ while True:
     # - Use the GetParameters to get only the latest message.
     # - Store the message in the "r" variable.
     r = requests.get(
-        "<!!!REPLACEME with URL of Webex Teams Messages API!!!>",
-        params=<!!!REPLACEME with HTTP parameters!!!>,
-        headers=<!!!REPLACEME with HTTP headers!!!>,
+        "https://webexapis.com/v1/messages",
+        params=getParameters,
+        headers=getHTTPHeader,
     )
     # verify if the retuned HTTP status code is 200/OK
     if not r.status_code == 200:
@@ -69,10 +69,9 @@ while True:
 
     # check if the text of the message starts with the magic character "/" followed by your studentID and a space and followed by a command name
     #  e.g.  "/66070123 create"
-    if message.startswith("<!!!REPLACEME!!!>"):
-
+    if message.startswith("/65070203 "):
         # extract the command
-        command = <!!!REPLACEME!!!>
+        command = message.split(' ')[1]
         print(command)
 
 # 5. Complete the logic for each command
