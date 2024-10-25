@@ -115,7 +115,7 @@ def disable():
 
 
 def status():
-    api_url_status = "https://10.0.15.189/restconf/data/ietf-interfaces:interfaces-state/interface=Loopback65070203"
+    api_url_status = "https://10.0.15.184/restconf/data/ietf-interfaces:interfaces-state/interface=Loopback65070203"
 
     resp = requests.get(
         api_url_status,
@@ -138,3 +138,4 @@ def status():
         return "No Interface loopback 65070203"
     else:
         print('Error. Status Code: {}'.format(resp.status_code))
+
